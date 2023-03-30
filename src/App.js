@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
+import { Global } from "@emotion/react";
+import { reset } from './styles/Global/reset';
+import Todo from './pages/Todo/Todo'
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Aside from './components/Aside/MainAside/MainAside'
+import Home from './pages/Home/Home';
+import { css } from "@emotion/react";
+import { useState } from 'react';
+import Container from './pages/Container/Container';
 
 function App() {
+
+  const [showAside, setShowAside] = useState(true);
+
+  const toggleAside = () => {
+    setShowAside(!showAside);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Global styles ={reset}/>
+    <Container/>
+   </>
   );
 }
 
